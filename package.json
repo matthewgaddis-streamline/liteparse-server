@@ -54,7 +54,7 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@llamaindex/liteparse": "^2.4.0",
+    "@llamaindex/liteparse": "^2.15.1",
     "@opentelemetry/api": "^1.9.1",
     "express": "^5.2.1",
     "multer": "^2.1.1",

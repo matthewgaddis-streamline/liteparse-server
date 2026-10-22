@@ -49,13 +49,12 @@ FROM node:24-slim AS runtime
 WORKDIR /app
 
 # System libraries needed for full liteparse functionality
-# (libvips for image processing, libreoffice for office docs, imagemagick for
-# rasterization, ca-certificates for TLS).
+# (libvips for image processing, libreoffice for office docs,
+# ca-certificates for TLS).
 RUN apt-get update && apt-get install -y --no-install-recommends \
       libvips42 \
       ca-certificates \
       libreoffice \
-      imagemagick \
     && rm -rf /var/lib/apt/lists/*
 
 ENV NODE_ENV=production

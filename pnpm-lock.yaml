@@ -8,8 +8,8 @@ importers:
   .:
     dependencies:
       "@llamaindex/liteparse":
-        specifier: ^2.4.0
-        version: 2.4.0
+        specifier: ^2.15.1
+        version: 2.15.1
       "@opentelemetry/api":
         specifier: ^1.9.1
         version: 1.9.1
@@ -99,8 +99,8 @@ importers:
         specifier: ^1.14.4
         version: 1.14.4
       "@llamaindex/liteparse":
-        specifier: ^2.4.0
-        version: 2.4.0
+        specifier: ^2.15.1
+        version: 2.15.1
       pino:
         specifier: ^10.3.1
         version: 10.3.1
@@ -536,69 +536,69 @@ packages:
         integrity: sha512-iUKgm52T8HOE/makSxjqoWhe95ZJA1/G1sYsGev2JDKUSS14KAgg1LHb+Ba+IPow0xflbnSkOsZcO08C7w1gYw==,
       }
 
-  "@llamaindex/liteparse-darwin-arm64@2.4.0":
+  "@llamaindex/liteparse-darwin-arm64@2.15.1":
     resolution:
       {
-        integrity: sha512-q58fz2imeCE0JrUJyIV4+zzR223LnAr56sgAUsPnHTxbcMjtbPw2TznGNWKgECd25wOoghlBNJrvYWuDOhrkeQ==,
+        integrity: sha512-VJD4uFhHRhC9DAblKBecYq4FeHDMSUfEDOh9cEKymPYJuptn7q83Ks9LAdwTbbq8/38JbNq0OemeduOz3R5PQQ==,
       }
     cpu: [arm64]
     os: [darwin]
 
-  "@llamaindex/liteparse-darwin-x64@2.4.0":
+  "@llamaindex/liteparse-darwin-x64@2.15.1":
     resolution:
       {
-        integrity: sha512-7tsTNooVY+qlspu/Qtp30/nCNl0Jdcv5qgncUHLzU7Ygj7qn8r54Q5zurGnPU8Lby3YgQ7B3dQHzr35uNqow8Q==,
+        integrity: sha512-RVbwO3mbz/FpXFoz+530B4bzZvMK2JeRx05CMXblSOp7OcCYTDbgng8P5aGiK81G/zbBZPZI0Bre+kAe6y95DQ==,
       }
     cpu: [x64]
     os: [darwin]
 
-  "@llamaindex/liteparse-linux-arm64-gnu@2.4.0":
+  "@llamaindex/liteparse-linux-arm64-gnu@2.15.1":
     resolution:
       {
-        integrity: sha512-eCEmbSsCr25gRfZiG/Sr+wE+ZHgo3O5p2Y4pEmhTpSZEEa2d0gsc5ARPixxtov9/TmuyJYIOLdUinItCmf6eQg==,
+        integrity: sha512-nbxLuwGQDWS7a7NRChhnlG8EncdN/ATJw9u3Z3CZMy0O45lrHUAVuiNry5+zSS+/+0SfQlUUPwvKEiay0nDyzw==,
       }
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  "@llamaindex/liteparse-linux-x64-gnu@2.4.0":
+  "@llamaindex/liteparse-linux-x64-gnu@2.15.1":
     resolution:
       {
-        integrity: sha512-8pWwcsjtNUu7ZUhI9qMZQcbwL3McxB6Bed7BXqVv70UtzNg1fk5cZc885bvicdpQaqnmaqcV5wk2WnhJHu/uxg==,
+        integrity: sha512-Jp0RFXbBa+XXAeHh7KTH7Sb2szOHOVcKxJqKUzAeNj71u2c+Y6gcuYajhC1WMZrKHffkg1WuTGZdET51c+HRwg==,
       }
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  "@llamaindex/liteparse-linux-x64-musl@2.4.0":
+  "@llamaindex/liteparse-linux-x64-musl@2.15.1":
     resolution:
       {
-        integrity: sha512-QMZfVDzlWVb/eBMEVYRtcpVI7QLK8C+cXrETrzCGymPRsvIFIGQL8B4mr45dIy2ndak5PcFEMD2NOTl/RjpbJA==,
+        integrity: sha512-BqKm0IWU6Emuhv94x1pitZdDMVMIvhyutL3DmuhP61iLDH4ATQsZpQ9RGBMfqI0ErQZSrMxpGcPYgOuJaV/GUQ==,
       }
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  "@llamaindex/liteparse-win32-arm64-msvc@2.4.0":
+  "@llamaindex/liteparse-win32-arm64-msvc@2.15.1":
     resolution:
       {
-        integrity: sha512-rQ/vIvWtRidTU7hWyC/lHZIqyrWXqaU+9wc/g1gPsJPGNVPEYGOmY/SmCxGT+unZ7ibI4a7hoBRScaP49V1GTw==,
+        integrity: sha512-JNbDvSeR7zZRp10GyAJnhSDxfQMXwr531s6XXcIn+JnOeLTSZJt/I/VqqM0jc3hIebcza2/9dzj9EYm5DSbINw==,
       }
     cpu: [arm64]
     os: [win32]
 
-  "@llamaindex/liteparse-win32-x64-msvc@2.4.0":
+  "@llamaindex/liteparse-win32-x64-msvc@2.15.1":
     resolution:
       {
-        integrity: sha512-VjdFVC5J2HP/iKVLMYjAjoCjO0Sj192ZgaqKKlmIa6LcZ4cU0q6YjUUHR9WH9shozbQm4n2KrV+tvpqPN4/9+w==,
+        integrity: sha512-rrF9Vs7v7gG+jUynsWf7Y2voxP1YII+UHfimMi8XY4duVYI2fg7adP+p9cuTD6iSsexlAM3AWmJV/Ivdx8BTLw==,
       }
     cpu: [x64]
     os: [win32]
 
-  "@llamaindex/liteparse@2.4.0":
+  "@llamaindex/liteparse@2.15.1":
     resolution:
       {
-        integrity: sha512-UuS8ISkBXhknLe38p8Osi6p15JZcva9cjFVzbxHWxT+qzFSLEnYfhLZqBgiZthjYGF2GOVgq8FEblf5TZwrX1Q==,
+        integrity: sha512-4yCqCNy6z0h3/1w92shbC7V2GnrnfieXa3QFcDWBN+AYybJflblzcL2SOp2I2pp8P1kmys4dgz0VN9aMX6LMTw==,
       }
     engines: { node: ">=18.0.0" }
     hasBin: true
@@ -1198,6 +1198,7 @@ packages:
         integrity: sha512-KMjVBHzP4N60bOzxja76M1F1hZZ43lGPga5ix+mkv9+kk1nx9SbkxSvJsMbuVUxdPQmsPTqGShmhN8ulrMOg6Q==,
       }
     engines: { node: ^18.19.0 || >=20.6.0 }
+    deprecated: Package no longer supported. See https://github.com/open-telemetry/opentelemetry-js/pull/7077
     peerDependencies:
       "@opentelemetry/api": ">=1.0.0 <1.10.0"
 
@@ -1304,6 +1305,7 @@ packages:
         integrity: sha512-NAYIlsF8MPUsKqJMiDQJTMPOmlbawC1Iz/omMLygZ1C9am8fTKYjTaI+OZM+WTY3t3Glo0wnOg/6/pac6RGPPw==,
       }
     engines: { node: ^18.19.0 || >=20.6.0 }
+    deprecated: Use @opentelemetry/sdk-trace package
     peerDependencies:
       "@opentelemetry/api": ">=1.3.0 <1.10.0"
 
@@ -1313,6 +1315,7 @@ packages:
         integrity: sha512-mhU4jp+vW0mGbFRd+GeXHvmfA4aDqWjBjLC3pE5XMpLs0IE2ryYb019Ts2AQrOq67gaTF25D91+fgvEHDZEnuQ==,
       }
     engines: { node: ^18.19.0 || >=20.6.0 }
+    deprecated: Use @opentelemetry/sdk-trace package
     peerDependencies:
       "@opentelemetry/api": ">=1.3.0 <1.10.0"
 
@@ -1322,6 +1325,7 @@ packages:
         integrity: sha512-pCpQxU68lV+I9s9svqMyVu5iHdDDUnqUpSxqwyCU8A9ejEsSnMPCbearwsUO4yk08ZJzAIUCFuReMdVQvHrdvg==,
       }
     engines: { node: ^18.19.0 || >=20.6.0 }
+    deprecated: Use @opentelemetry/sdk-trace package
     peerDependencies:
       "@opentelemetry/api": ">=1.0.0 <1.10.0"
 
@@ -1331,6 +1335,7 @@ packages:
         integrity: sha512-nZt9OGufioAc3AfoLTqA9bsAeaMJAictYDdI2VcNQ+PmT+3rfKjAZDZvgPfd8VPX0O5Bw1hdQF6kDK8VSpZiWg==,
       }
     engines: { node: ^18.19.0 || >=20.6.0 }
+    deprecated: Use @opentelemetry/sdk-trace package
     peerDependencies:
       "@opentelemetry/api": ">=1.0.0 <1.10.0"
 
@@ -4284,38 +4289,38 @@ snapshots:
 
   "@js-sdsl/ordered-map@4.4.2": {}
 
-  "@llamaindex/liteparse-darwin-arm64@2.4.0":
+  "@llamaindex/liteparse-darwin-arm64@2.15.1":
     optional: true
 
-  "@llamaindex/liteparse-darwin-x64@2.4.0":
+  "@llamaindex/liteparse-darwin-x64@2.15.1":
     optional: true
 
-  "@llamaindex/liteparse-linux-arm64-gnu@2.4.0":
+  "@llamaindex/liteparse-linux-arm64-gnu@2.15.1":
     optional: true
 
-  "@llamaindex/liteparse-linux-x64-gnu@2.4.0":
+  "@llamaindex/liteparse-linux-x64-gnu@2.15.1":
     optional: true
 
-  "@llamaindex/liteparse-linux-x64-musl@2.4.0":
+  "@llamaindex/liteparse-linux-x64-musl@2.15.1":
     optional: true
 
-  "@llamaindex/liteparse-win32-arm64-msvc@2.4.0":
+  "@llamaindex/liteparse-win32-arm64-msvc@2.15.1":
     optional: true
 
-  "@llamaindex/liteparse-win32-x64-msvc@2.4.0":
+  "@llamaindex/liteparse-win32-x64-msvc@2.15.1":
     optional: true
 
-  "@llamaindex/liteparse@2.4.0":
+  "@llamaindex/liteparse@2.15.1":
     dependencies:
       commander: 12.1.0
     optionalDependencies:
-      "@llamaindex/liteparse-darwin-arm64": 2.4.0
-      "@llamaindex/liteparse-darwin-x64": 2.4.0
-      "@llamaindex/liteparse-linux-arm64-gnu": 2.4.0
-      "@llamaindex/liteparse-linux-x64-gnu": 2.4.0
-      "@llamaindex/liteparse-linux-x64-musl": 2.4.0
-      "@llamaindex/liteparse-win32-arm64-msvc": 2.4.0
-      "@llamaindex/liteparse-win32-x64-msvc": 2.4.0
+      "@llamaindex/liteparse-darwin-arm64": 2.15.1
+      "@llamaindex/liteparse-darwin-x64": 2.15.1
+      "@llamaindex/liteparse-linux-arm64-gnu": 2.15.1
+      "@llamaindex/liteparse-linux-x64-gnu": 2.15.1
+      "@llamaindex/liteparse-linux-x64-musl": 2.15.1
+      "@llamaindex/liteparse-win32-arm64-msvc": 2.15.1
+      "@llamaindex/liteparse-win32-x64-msvc": 2.15.1
 
   "@napi-rs/wasm-runtime@1.1.6(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)":
     dependencies:

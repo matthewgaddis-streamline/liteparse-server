@@ -27,12 +27,11 @@ FROM node:24-slim AS runtime
 WORKDIR /app
 
 # System libraries needed for full liteparse functionality.
-# libreoffice + imagemagick dominate the image size (~800MB); the rest is small.
+# libreoffice dominates the image size; the rest is comparatively small.
 RUN apt-get update && apt-get install -y --no-install-recommends \
       libvips42 \
       ca-certificates \
       libreoffice \
-      imagemagick \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 ENV PNPM_HOME=/pnpm

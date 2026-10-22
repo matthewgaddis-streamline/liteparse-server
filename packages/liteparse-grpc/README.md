@@ -53,7 +53,7 @@ Environment variables:
 
 ## Docker
 
-The repo ships a [`Dockerfile`](./Dockerfile) that produces a self-contained image with all system libraries needed for full LiteParse functionality (libvips, LibreOffice, ImageMagick).
+The repo ships a [`Dockerfile`](./Dockerfile) that produces a self-contained image with all system libraries needed for full LiteParse functionality (libvips, LibreOffice).
 
 Build and run it from the **repo root** (the Dockerfile expects the workspace layout):
 

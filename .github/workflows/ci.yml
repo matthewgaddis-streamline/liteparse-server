@@ -57,7 +57,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libreoffice imagemagick ghostscript tesseract-ocr
+          sudo apt-get install -y libreoffice ghostscript tesseract-ocr
 
       - name: Install dependencies
         run: pnpm install
