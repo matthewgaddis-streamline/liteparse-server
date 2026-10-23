@@ -1,9 +1,14 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { isComplex, parse, screenshot } from "../src/utils";
-import { readFile } from "fs/promises";
+import { access, readFile } from "fs/promises";
 import path from "path";
 import Stream from "stream";
-import { LiteParseConfig, ParsedPage } from "@llamaindex/liteparse";
+import {
+  LiteParse,
+  LiteParseConfig,
+  ParseResult,
+  ParsedPage,
+} from "@llamaindex/liteparse";
 
 const PE_DEAL_EXAMPLES_EXPECTED_PART_CONTENT_1 = "AlphaFlex Packaging Group";
 const PE_DEAL_EXAMPLES_EXPECTED_PART_CONTENT_2 = "Veridian Health Technologies";
@@ -303,5 +308,67 @@ describe("Test isComplex", () => {
     expect(Array.isArray(result)).toBe(true);
     expect(result.length).toBe(1); // only one targeted page
     expect(result[0]?.pageNumber).toBe(1);
+  });
+});
+
+describe("Temporary file handling", () => {
+  it("preserves the uploaded extension and cleans up after parsing", async () => {
+    const file = await toMulterFile(PDF_FILE_PATH, "application/pdf");
+    file.originalname = "../../agreement.pages";
+    let stagedPath: string | undefined;
+
+    const parseSpy = vi
+      .spyOn(LiteParse.prototype, "parse")
+      .mockImplementation(async (input) => {
+        if (typeof input !== "string") {
+          throw new Error("LiteParse received a buffer instead of a path");
+        }
+        stagedPath = input;
+        expect(await readFile(input)).toEqual(file.buffer);
+        return {
+          totalPages: 0,
+          pages: [],
+          pageErrors: [],
+          text: "",
+          images: [],
+          screenshots: [],
+          imageErrorCount: 0,
+        } satisfies ParseResult;
+      });
+
+    try {
+      await parse({ file });
+    } finally {
+      parseSpy.mockRestore();
+    }
+
+    expect(stagedPath).toMatch(/\/agreement\.pages$/);
+    await expect(access(stagedPath!)).rejects.toThrow();
+    await expect(access(path.dirname(stagedPath!))).rejects.toThrow();
+  });
+
+  it("cleans up the temporary file after parsing fails", async () => {
+    const file = await toMulterFile(PDF_FILE_PATH, "application/pdf");
+    let stagedPath: string | undefined;
+
+    const parseSpy = vi
+      .spyOn(LiteParse.prototype, "parse")
+      .mockImplementation(async (input) => {
+        if (typeof input !== "string") {
+          throw new Error("LiteParse received a buffer instead of a path");
+        }
+        stagedPath = input;
+        throw new Error("conversion failed");
+      });
+
+    try {
+      await expect(parse({ file })).rejects.toThrow("conversion failed");
+    } finally {
+      parseSpy.mockRestore();
+    }
+
+    expect(stagedPath).toBeDefined();
+    await expect(access(stagedPath!)).rejects.toThrow();
+    await expect(access(path.dirname(stagedPath!))).rejects.toThrow();
   });
 });

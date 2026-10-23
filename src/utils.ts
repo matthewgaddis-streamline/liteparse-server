@@ -1,5 +1,8 @@
 import { LiteParse, type LiteParseConfig } from "@llamaindex/liteparse";
 import { SpanStatusCode } from "@opentelemetry/api";
+import { mkdtemp, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { basename, join } from "node:path";
 import { PrefixedLogger } from "./logger";
 import {
   tracer,
@@ -21,6 +24,32 @@ import {
 } from "./telemetry";
 
 export const SCREENSHOT_MIMETYPE = "image/png";
+
+function safeUploadedFileName(originalName: string): string {
+  const fileName = basename(originalName.replaceAll("\\", "/"));
+  const safeName = fileName.replace(/[^a-zA-Z0-9._-]/g, "_");
+  return safeName === "" || safeName === "." || safeName === ".."
+    ? "upload"
+    : safeName;
+}
+
+async function withTemporaryFile<T>(
+  file: Express.Multer.File,
+  callback: (filePath: string) => Promise<T>,
+): Promise<T> {
+  const temporaryDirectory = await mkdtemp(join(tmpdir(), "liteparse-"));
+  const filePath = join(
+    temporaryDirectory,
+    safeUploadedFileName(file.originalname),
+  );
+
+  try {
+    await writeFile(filePath, file.buffer);
+    return await callback(filePath);
+  } finally {
+    await rm(temporaryDirectory, { recursive: true, force: true });
+  }
+}
 
 export async function parse({
   file,
@@ -51,7 +80,9 @@ export async function parse({
 
     const startTime = performance.now();
     try {
-      const result = await lit.parse(file.buffer);
+      const result = await withTemporaryFile(file, (filePath) =>
+        lit.parse(filePath),
+      );
       const duration = performance.now() - startTime;
 
       parseDurationMs.record(duration, { "parse.mode": mode });
@@ -110,7 +141,9 @@ export async function screenshot({
 
     try {
       const startTime = performance.now();
-      const result = await lit.screenshot(file.buffer, pageNumbers);
+      const result = await withTemporaryFile(file, (filePath) =>
+        lit.screenshot(filePath, pageNumbers),
+      );
       const duration = performance.now() - startTime;
 
       screenDurationMs.record(duration);
@@ -162,7 +195,9 @@ export async function isComplex({
 
     try {
       const startTime = performance.now();
-      const result = await lit.isComplex(file.buffer);
+      const result = await withTemporaryFile(file, (filePath) =>
+        lit.isComplex(filePath),
+      );
       const duration = performance.now() - startTime;
 
       isComplexDurationMs.record(duration);
